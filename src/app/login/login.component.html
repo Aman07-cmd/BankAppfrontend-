@@ -1,0 +1,37 @@
+<!-- login page -->
+<app-header></app-header>
+<div class="row">
+    <div class="col-7">
+        <img class="mt-5 ms-3" height="250px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsf47R-Mmn1wKRMcQ9xcqODjVFHNijPpZCYg&usqp=CAU"
+            alt="no image">
+    </div>
+    <div class="col-5 mt-5">
+        <form (ngSubmit)="login()" [formGroup]="loginForm"
+        class="border p-5 mt-5 me-5">
+            <div class="form-floating mb-2">
+                <input name="acno" formControlName="acno" type="Account number" class="form-control" id="floatingInput" placeholder="Account number">
+                <label for="floatingInput">Account Number</label>
+              </div>
+
+              <div *ngIf="this.loginForm.get('acno')?.errors&&this.loginForm.get('acno')?.touched"
+              class="text-danger mb-2">Invalid Account Number</div>
+
+              <div class="form-floating mb-2">
+                <input name="pswd" formControlName="pswd" type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                <label for="floatingPassword">Password</label>
+              </div>
+              <div *ngIf="this.loginForm.get('pswd')?.errors&&this.loginForm.get('pswd')?.touched"
+              class="text-danger mb-2">Invalid Password</div>
+            <div>
+                <button  type="submit" class="btn btn-primary"> login</button>
+                &nbsp;
+                <span>
+                    New user? click here to <a routerLink="/register"> register </a>
+
+                </span>
+            </div>
+
+        </form>
+    </div>
+</div>
+

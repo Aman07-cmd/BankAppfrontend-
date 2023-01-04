@@ -1,0 +1,49 @@
+<app-header></app-header>
+
+<div class="container mt-2">
+    <h2>Register Form</h2>
+    <br>
+    <h4>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit, quasi deserunt ad error consequatur quaerat quam placeat sint accusantium, consequuntur molestiae iure, eos eveniet doloribus quibusdam ex quas? Veritatis, quia.</h4>
+    <div class="row">
+    <div class="col-7">
+        <img class="mt-5 ms-3" height="250px" src="ttps://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsf47R-Mmn1wKRMcQ9xcqODjVFHNijPpZCYg&usqp=CAU"
+            alt="no image">
+    </div>
+    <div class="col-5 mt-5">
+        <form (ngSubmit)="register()" [formGroup]="RegisterForm"
+        class="border p-5 mt-5 me-5">
+        <div class="form-floating mb-2">
+            <input name="uname" formControlName="uname" type="text" class="form-control" id="floatingInput" placeholder="Username">
+            <label for="floatingInput">Username</label>
+          </div>
+
+          <div *ngIf="this.RegisterForm.get('uname')?.errors&&this.RegisterForm.get('uname')?.touched"
+          class="text-danger mb-2">Invalid Username</div>
+            <div class="form-floating mb-2">
+                <input name="acno" formControlName="acno" type="Account number" class="form-control" id="floatingInput" placeholder="Account number">
+                <label for="floatingInput">Account Number</label>
+              </div>
+
+              <div *ngIf="this.RegisterForm.get('acno')?.errors&&this.RegisterForm.get('acno')?.touched"
+              class="text-danger mb-2">Invalid Account Number</div>
+
+              <div class="form-floating mb-2">
+                <input name="pswd" formControlName="pswd" type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                <label for="floatingPassword">Password</label>
+              </div>
+              <div *ngIf="this.RegisterForm.get('pswd')?.errors&&this.RegisterForm.get('pswd')?.touched"
+              class="text-danger mb-2">Invalid Password</div>
+            <div>
+                <button  type="submit" class="btn btn-primary"> Register</button>
+                &nbsp;
+                <span>
+                    Already have an account? click here to <a routerLink="/"> login </a>
+
+                </span>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+</div>
